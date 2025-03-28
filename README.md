@@ -4,13 +4,14 @@ Docker container for zap2xml, modified with new https://tvlistings.gracenote.com
 This is zap2xml with Environment Variables driving the configuration. By default it runs every 12 hours to update your EPG data from zap2it. This container will take a second account for zap2it and will merge the received xml files into one using tv_merge.
 
 ## Quick Run
-`git clone https://github.com/reitermiller/zap2xml-patched.git && cd zap2xml-patched`
-and
-`docker build -t zap2xml-patched .`
-then
-`docker run -d --name zap2xml -v /xmltvdata:/data -e USERNAME=youremail@email.com -e PASSWORD=**password** -e OPT_ARGS="-I -D -a" -e USERNAME2=yourseconduser@email.com -e PASSWORD2=**secondpassword** -e OPT_ARGS2="-I -D" -e XMLTV_FILENAME=xmltv.xml zap2xml-patched`
+`git clone https://github.com/reitermiller/zap2xml-patched.git && cd zap2xml-patched`\
+and\
+`docker build -t zap2xml-patched .`\
+then\
+`docker run -d --name zap2xml -v /xmltvdata:/data -e USERNAME=youremail@email.com -e PASSWORD=**password** -e OPT_ARGS="-I -D -a" -e USERNAME2=yourseconduser@email.com -e PASSWORD2=**secondpassword** -e OPT_ARGS2="-I -D" -e XMLTV_FILENAME=xmltv.xml zap2xml-patched`\
 or
-`version: "3.0"
+```
+version: "3.0"
 services:
   zap2xml-patched:
     hostname: zap2xml-patched
@@ -25,7 +26,8 @@ services:
     restart: unless-stopped
 
 volumes:
-  zap2xml:`
+  zap2xml:
+```
 
 ## Environment Settings
 You can configure the following environment variables below:
